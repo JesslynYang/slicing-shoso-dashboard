@@ -1,0 +1,269 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+$bg: #f8f9fd;
+$bg-light: #ffffff;
+$bg-secondary: #fbfbfb;
+$bg-tertiary: #f5f5f5;
+
+$primary: #2579d1;
+$light-primary: #e9f6ff;
+
+$tertiary: #627eea;
+
+$text: #131e3f;
+$text-secondary: #66696f;
+$text-light: #9e9e9e;
+
+$pink: #ff6d6d;
+
+$border: #f2f2f2;
+$border-secondary: #ededed;
+$label: #748c9e;
+
+$footer: #c5c5c5;
+$profile: #0b102c;
+
+$button: #f6fafd;
+
+
+
+// $bg: 'bg';
+// $card-bg: 'card-bg';
+// $text: 'text';
+// $text-secondary: 'text-secondary';
+// $link: 'link';
+// $hover: 'hover';
+// $logo: 'logo';
+// $brand-blue: 'brand-blue';
+// $brand-red: 'brand-red';
+// $border: 'border';
+
+// Light Theme
+$l-bg: #f8f9fd;
+$l-bg-light: #ffffff;
+$l-bg-secondary: #fbfbfb;
+$l-bg-tertiary: #f5f5f5;
+
+$l-primary: #2579d1;
+$l-light-primary: #e9f6ff;
+
+$l-tertiary: #627eea;
+
+$l-text: #131e3f;
+$l-text-secondary: #66696f;
+$l-text-light: #9e9e9e;
+
+$l-pink: #ff6d6d;
+
+$l-border: #f2f2f2;
+$l-border-secondary: #ededed;
+$l-label: #748c9e;
+
+$l-footer: #c5c5c5;
+$l-profile: #0b102c;
+
+$l-button: #f6fafd;
+
+// Dark Theme
+$d-bg: #0B0B0B;
+$d-bg-light: #2B2B2B;
+$d-bg-secondary: #fbfbfb;
+$d-bg-tertiary: #f5f5f5;
+
+$d-primary: #2579d1;
+$d-light-primary: #e9f6ff;
+
+$d-tertiary: #627eea;
+
+$d-text: #131e3f;
+$d-text-secondary: #66696f;
+$d-text-light: #9e9e9e;
+
+$d-pink: #ff6d6d;
+
+$d-border: #f2f2f2;
+$d-border-secondary: #ededed;
+$d-label: #748c9e;
+
+$d-footer: #c5c5c5;
+$d-profile: #0b102c;
+
+$d-button: #f6fafd;
+
+// Themes
+$themes: (
+  darkTheme: (
+    'bg': $d-bg,
+    'bg-light': $d-bg-light,
+    'bg-secondary': $d-bg-secondary,
+    'bg-tertiary': $d-bg-tertiary,
+
+    'primary': $d-primary,
+    'light-primary': $d-light-primary,
+
+    'tertiary': $d-tertiary,
+
+    'text': $d-text,
+    'text-secondary': $d-text-secondary,
+    'text-light': $d-text-light,
+
+    'pink': $d-pink,
+    'border': $d-border,
+    'border-secondary': $d-border-secondary,
+    'label': $d-label,
+    'footer': $d-footer,
+
+    'profile': $d-profile,
+    'button': $d-button,
+  ),
+  lightTheme: (
+    'bg': $l-bg,
+    'bg-light': $l-bg-light,
+    'bg-secondary': $l-bg-secondary,
+    'bg-tertiary': $l-bg-tertiary,
+
+    'primary': $l-primary,
+    'light-primary': $l-light-primary,
+
+    'tertiary': $l-tertiary,
+
+    'text': $l-text,
+    'text-secondary': $l-text-secondary,
+    'text-light': $l-text-light,
+
+    'pink': $l-pink,
+    'border': $l-border,
+    'border-secondary': $l-border-secondary,
+    'label': $l-label,
+    'footer': $l-footer,
+
+    'profile': $l-profile,
+    'button': $l-button,
+  )
+);
+
+$theme-map: null;
+
+@mixin theme() {
+  @each $theme, $map in $themes {
+    // $theme: darkTheme, lightTheme
+    // $map: ('text-color': ..., 'bg-color': ...)
+
+    // make the $map globally accessible, so that theme-get() can access it
+    $theme-map: $map !global;
+
+    // make a class for each theme using interpolation -> #{}
+    // use & for making the theme class ancestor of the class
+    // from which you use @include theme() {...}
+    .#{$theme} & {
+      @content;    // the content inside @include theme() {...}
+    }
+  }
+  // no use of the variable $theme-map now
+  $theme-map: null !global;
+}
+
+@function theme-get($key) {
+  @return map-get($theme-map, $key);
+}
+
+// // Colors
+// $themes: (
+//   default: (
+//     bg: $l-bg,
+//     bg-light: $l-bg-light,
+//     bg-secondary: $l-bg-secondary,
+//     bg-tertiary: $l-bg-tertiary,
+
+//     primary: $l-primary,
+//     light-primary: $l-light-primary,
+
+//     tertiary: $l-tertiary,
+
+//     text: $l-text,
+//     text-secondary: $l-text-secondary,
+//     text-light: $l-text-light,
+
+//     pink: $l-pink,
+//     border: $l-border,
+//     border-secondary: $l-border-secondary,
+//     label: $l-label,
+//     footer: $l-footer,
+
+//     profile: $l-profile,
+//     button: $l-button,
+//   ),
+//   dark: (
+//     bg: $d-bg,
+//     bg-light: $d-bg-light,
+//     bg-secondary: $d-bg-secondary,
+//     bg-tertiary: $d-bg-tertiary,
+
+//     primary: $d-primary,
+//     light-primary: $d-light-primary,
+
+//     tertiary: $d-tertiary,
+
+//     text: $d-text,
+//     text-secondary: $d-text-secondary,
+//     text-light: $d-text-light,
+
+//     pink: $d-pink,
+//     border: $d-border,
+//     border-secondary: $d-border-secondary,
+//     label: $d-label,
+//     footer: $d-footer,
+
+//     profile: $d-profile,
+//     button: $d-button,
+//   ),
+// );
+
+// @mixin themed() {
+//   $theme-map: null !global;
+//   @each $theme, $map in $themes {
+//     .theme--#{$theme} & {
+//       // $theme-map: () !global;
+//       @each $key, $submap in $map {
+//         $value: map-get(map-get($themes, $theme), "#{$key}");
+//         $theme-map: map-merge(
+//           $theme-map,
+//           (
+//             $key: $value,
+//           )
+//         ) !global;
+//       }
+//       @content;
+//       $theme-map: null !global;
+//     }
+//   }
+// }
+
+// @function t($key) {
+//   @return map-get($theme-map, $key);
+// }
+
+html,
+body {
+  // @include themed() {
+  //   background-color: t($bg);
+  // }
+  background: $bg;
+
+  // @include theme() {
+  //   background-color: theme-get('bg');
+  // }
+
+  font-family: "Poppins";
+  overflow-x: hidden;
+
+  position: relative;
+  z-index: 1;
+}
+
+@mixin button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+}

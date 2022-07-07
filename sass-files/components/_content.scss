@@ -1,0 +1,332 @@
+#content {
+    padding: 20px;
+
+    @include lg {
+        padding: 40px 60px;
+    }
+
+  .profile- {
+    &img {
+      width: 60px;
+      height: 60px;
+      margin-right: 20px;
+    }
+
+    &name {
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 39px;
+
+      color: $profile;
+      margin: 0;
+    }
+
+    &desc {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 21px;
+
+      color: $text-light;
+      margin: 0;
+      margin-right: 6px;
+    }
+
+    &edit {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 21px;
+
+      color: $tertiary;
+      text-decoration: none;
+
+      margin: 0;
+    }
+  }
+
+  .content-col {
+    margin-top: 60px;
+    margin-bottom: 10px;
+  }
+
+  .input-container {
+    width: 100%;
+
+    @include xl {
+      width: 50%;
+    }
+  }
+
+  .input-group {
+    position: relative;
+    z-index: 0;
+    height: 50px;
+
+    background: $bg-light;
+    border-radius: 12px;
+    & > * {
+      border: 0;
+    }
+    button {
+      background: $bg-light;
+    }
+
+    input {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      /* identical to box height */
+
+      color: $text-secondary;
+    }
+  }
+
+  .btn-notif {
+    @include button;
+
+    width: 55px;
+    height: 50px;
+    padding: 13px;
+    border-radius: 50%;
+
+    background: $bg-light;
+
+    margin-left: 20px;
+  }
+}
+
+.exclusive {
+  .col-lg-4 {
+    padding: 0;
+  }
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  .color {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    /* identical to box height */
+
+    color: $text-light;
+
+    margin: 0;
+  }
+
+  .name {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+
+    color: $text;
+    margin: 0;
+  }
+
+  .price {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: $primary;
+  }
+
+  &- {
+    &preview {
+      max-width: 100%;
+      margin-bottom: 10px;
+    }
+    &card {
+        margin-bottom: 12px;
+      width: 100%;
+      // max-width: 300px;
+
+      background: $bg-light;
+      border-radius: 24px;
+      padding: 20px;
+    }
+
+    &like {
+      @include button;
+    }
+
+    &btn {
+      @include button;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 21px;
+      /* identical to box height */
+
+      color: $bg-light;
+
+      width: 100%;
+      height: 45px;
+
+      background: #2579d1;
+      border-radius: 12px;
+
+      @include xl {
+        width: 109px;
+      }
+    }
+  }
+}
+
+.content- {
+  &title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+    color: $text;
+  }
+
+  &link {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    /* identical to box height */
+
+    color: $primary;
+  }
+}
+
+.best- {
+  &card {
+    margin-bottom: 12px;
+    background-color: $bg-light;
+    border-radius: 24px;
+    padding: 25px;
+
+    .brand {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 27px;
+      margin: 0;
+      margin-right: 7px;
+      /* identical to box height */
+
+      color: $text;
+    }
+
+    .social {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      /* identical to box height */
+
+      color: $text-light;
+    }
+  }
+
+  &btn {
+    @include button;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    /* identical to box height */
+
+    color: $primary;
+
+    width: 89px;
+    height: 38px;
+
+    &.bg {
+      background: $button;
+      border: 1px solid $primary;
+      border-radius: 100px;
+
+      color: $primary;
+
+      &.follow {
+        background: $primary;
+        color: $bg-light;
+      }
+    }
+  }
+
+  &preview-group {
+    max-width: 100%;
+  }
+
+  &preview {
+    // height: 40px;
+    // width: 100% !important;
+    // height:100%;
+      max-width: 100%;
+    // max-height: 30px;
+  }
+
+  &logo-container {
+    margin-top: -35px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+    height: 75px;
+
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    overflow: hidden;
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 50%;
+      background: $bg-light;
+      width: 69px;
+      height: 69px;
+      overflow: hidden;
+
+      img {
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &details {
+    background: $bg-secondary;
+    border-radius: 12px;
+    padding: 14px 18px;
+
+    margin-top: 10px;
+    &-section {
+      &:not(:first-child) {
+        padding-left: 29px;
+      }
+      &:not(:last-child) {
+        padding-right: 29px;
+        border-right: 1px solid $border-secondary;
+      }
+    }
+
+    .best-details-value {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+      /* identical to box height */
+
+      color: $text;
+    }
+
+    .best-details-label {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      /* identical to box height */
+
+      color: $label;
+    }
+  }
+}

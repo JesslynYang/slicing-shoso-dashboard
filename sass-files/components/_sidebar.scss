@@ -1,0 +1,245 @@
+.cover {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  @include lg {
+    display: none;
+  }
+}
+
+.row {
+  margin: 0;
+}
+
+#sidebar {
+  width: 370px;
+  background-color: $bg-light;
+  padding: 0;
+  padding-bottom: 60px;
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  z-index: 3;
+  left: -100vw;
+
+  transition: all 0.25s;
+
+  &.appear {
+    left: 0;
+  }
+
+  @include lg {
+    position: fixed;
+    left: 0;
+
+    ~ .col {
+      padding-left: 370px + 60px;
+    }
+  }
+
+  .top {
+    padding: 40px;
+    padding-right: 0;
+    margin-bottom: 40px;
+    border-bottom: 1px solid $border;
+  }
+
+  .logo {
+    margin-right: 20px;
+  }
+
+  .title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+
+    color: $text;
+    margin: 0;
+  }
+
+  .desc {
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: $text-light;
+  }
+
+  .sub-title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+
+    color: $text;
+
+    margin-top: 50px;
+    margin-bottom: 10px;
+    padding-left: 40px;
+  }
+
+  .item {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 47px;
+
+    padding: 0 40px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+
+      margin-right: 18px;
+
+      path {
+        stroke: $text-secondary;
+      }
+    }
+
+    .name {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 27px;
+
+      color: $text-secondary;
+    }
+
+    .total {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+
+      background: $light-primary;
+
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 21px;
+      /* identical to box height */
+
+      color: $primary;
+
+      margin: 0;
+    }
+
+    &.active {
+      background: linear-gradient(
+        -270deg,
+        #f3f5ff 0%,
+        rgba(212, 219, 255, 0) 100%
+      );
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        content: ".";
+        color: transparent;
+        width: 6px;
+        height: 100%;
+
+        background: $primary;
+        border-radius: 0px 4px 4px 0px;
+      }
+
+      svg path {
+        stroke: $primary;
+      }
+
+      .name {
+        font-weight: 500;
+
+        color: $primary;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .mode- {
+    &item {
+      margin-top: 340px;
+      margin-bottom: 30px;
+
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      img {
+        margin-right: 20px;
+      }
+    }
+
+    &title {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 27px;
+      /* identical to box height */
+
+      color: $text-secondary;
+    }
+  }
+
+  .footer-text {
+    padding: 0 38px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+    letter-spacing: -0.005em;
+
+    color: $footer;
+  }
+}
+
+.toggle {
+  &- {
+    &container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 4px;
+
+      background: $bg-tertiary;
+
+      width: 70px;
+      height: 30px;
+
+      border-radius: 100px;
+    }
+
+    &circle {
+      width: 32px;
+      height: 22px;
+
+      border-radius: 100px;
+
+      background-position: center;
+      background-size: 15px 15px;
+      background-repeat: no-repeat;
+
+      transition: all .25s ease-in-out;
+
+      &.active {
+        background-color: $bg-light;
+      }
+    }
+  }
+}
