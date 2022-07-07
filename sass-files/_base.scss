@@ -68,28 +68,53 @@ $l-button: #f6fafd;
 // Dark Theme
 $d-bg: #0B0B0B;
 $d-bg-light: #2B2B2B;
-$d-bg-secondary: #fbfbfb;
-$d-bg-tertiary: #f5f5f5;
+$d-bg-secondary: #131e3f;
+$d-bg-tertiary: #66696f; //66696f
 
-$d-primary: #2579d1;
-$d-light-primary: #e9f6ff;
+$d-primary: #e9f6ff; //e9f6ff
+$d-light-primary: #2579d1; //2579d1
 
 $d-tertiary: #627eea;
 
-$d-text: #131e3f;
-$d-text-secondary: #66696f;
-$d-text-light: #9e9e9e;
+$d-text: #fbfbfb; //fbfbfb
+$d-text-secondary: #f5f5f5; //f5f5f5
+$d-text-light: #f2f2f2; //f2f2f2
 
 $d-pink: #ff6d6d;
 
-$d-border: #f2f2f2;
-$d-border-secondary: #ededed;
-$d-label: #748c9e;
+$d-border: #9e9e9e; //9e9e9e
+$d-border-secondary: #748c9e; //748c9e
+$d-label: #ededed; //ededed
 
 $d-footer: #c5c5c5;
-$d-profile: #0b102c;
+$d-profile: #f6fafd; //f6fafd
 
-$d-button: #f6fafd;
+$d-button: #0b102c; //0b102c0b102c
+
+// $d-bg: #0B0B0B;
+// $d-bg-light: #2B2B2B;
+// $d-bg-secondary: #fbfbfb; //131e3f
+// $d-bg-tertiary: #f5f5f5; //66696f
+
+// $d-primary: #2579d1; //e9f6ff
+// $d-light-primary: #e9f6ff; //2579d1
+
+// $d-tertiary: #627eea;
+
+// $d-text: #131e3f; //fbfbfb
+// $d-text-secondary: #66696f; //f5f5f5
+// $d-text-light: #9e9e9e; //f2f2f2
+
+// $d-pink: #ff6d6d;
+
+// $d-border: #f2f2f2; //9e9e9e
+// $d-border-secondary: #ededed; //748c9e
+// $d-label: #748c9e; //ededed
+
+// $d-footer: #c5c5c5;
+// $d-profile: #0b102c; //f6fafd
+
+// $d-button: #f6fafd; //0b102c0b102c
 
 // Themes
 $themes: (
@@ -144,7 +169,6 @@ $themes: (
 );
 
 $theme-map: null;
-
 @mixin theme() {
   @each $theme, $map in $themes {
     // $theme: darkTheme, lightTheme
@@ -249,11 +273,11 @@ body {
   // @include themed() {
   //   background-color: t($bg);
   // }
-  background: $bg;
+  // background: $bg;
 
-  // @include theme() {
-  //   background-color: theme-get('bg');
-  // }
+  @include theme() {
+    background-color: theme-get('bg');
+  }
 
   font-family: "Poppins";
   overflow-x: hidden;

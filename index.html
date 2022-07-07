@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" class="lightTheme">
 
 <head>
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./css/index.css">
 </head>
 
-<body class="lightTheme">
+<body>
 
     <div class="cover d-none"></div>
 
@@ -486,6 +486,8 @@
         const checkbox = document.getElementById('toggle')
         const toggle_circles = document.querySelectorAll('.toggle-circle')
 
+        let theme = false; // 0: light, 1: dark
+
         function resetActiveSidebar() {
             sidebar_items.forEach((item, key) => item.classList.remove('active'))
         }
@@ -504,6 +506,10 @@
         }
 
         checkbox.addEventListener('change', function (e) {
+            document.querySelector('html').classList.toggle('darkTheme')
+            document.querySelector('html').classList.toggle('lightTheme')
+            theme = !theme
+
             toggle_circles.forEach((circle, key) => {
                 circle.classList.toggle('active')
             })

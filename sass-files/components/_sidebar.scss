@@ -17,8 +17,12 @@
 }
 
 #sidebar {
+
+  @include theme() {
+    background-color: theme-get('bg-light');
+  }
+
   width: 370px;
-  background-color: $bg-light;
   padding: 0;
   padding-bottom: 60px;
 
@@ -48,7 +52,10 @@
     padding: 40px;
     padding-right: 0;
     margin-bottom: 40px;
-    border-bottom: 1px solid $border;
+
+    @include theme() {
+      border-bottom: 1px solid theme-get('border');
+    }
   }
 
   .logo {
@@ -56,29 +63,36 @@
   }
 
   .title {
+    @include theme() {
+      color: theme-get('text');
+    }
+
     font-weight: 600;
     font-size: 18px;
     line-height: 27px;
 
-    color: $text;
     margin: 0;
   }
 
   .desc {
+    @include theme() {
+      color: theme-get('text-light');
+    }
     margin: 0;
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
 
-    color: $text-light;
   }
 
   .sub-title {
+    @include theme() {
+      color: theme-get('text');
+    }
+
     font-weight: 500;
     font-size: 18px;
     line-height: 27px;
-
-    color: $text;
 
     margin-top: 50px;
     margin-bottom: 10px;
@@ -86,6 +100,16 @@
   }
 
   .item {
+    @include theme() {
+
+      svg {
+        path {
+          stroke: theme-get('text-secondary');
+        }
+      }
+      background-color: theme-get('bg');
+    }
+
     position: relative;
 
     display: flex;
@@ -101,20 +125,26 @@
 
       margin-right: 18px;
 
-      path {
-        stroke: $text-secondary;
-      }
+      // path {
+      //   stroke: $text-secondary;
+      // }
     }
 
     .name {
+      @include theme() {
+        color: theme-get('text-secondary');
+      }
       font-weight: 400;
       font-size: 18px;
       line-height: 27px;
-
-      color: $text-secondary;
     }
 
     .total {
+      @include theme() {
+        background-color: theme-get('light-primary');
+        color: theme-get('primary');
+      }
+
       display: flex;
       justify-content: center;
       align-items: center;
@@ -123,19 +153,31 @@
       height: 25px;
       border-radius: 50%;
 
-      background: $light-primary;
 
       font-weight: 500;
       font-size: 14px;
       line-height: 21px;
       /* identical to box height */
 
-      color: $primary;
 
       margin: 0;
     }
 
     &.active {
+      @include theme() {
+        &::before {
+          background-color: theme-get('primary');
+        }
+        
+        svg path {
+          stroke: theme-get('primary');
+        }
+
+        .name {
+          color: theme-get('primary');
+        }
+      }
+
       background: linear-gradient(
         -270deg,
         #f3f5ff 0%,
@@ -152,18 +194,17 @@
         width: 6px;
         height: 100%;
 
-        background: $primary;
         border-radius: 0px 4px 4px 0px;
       }
 
-      svg path {
-        stroke: $primary;
-      }
+      // svg path {
+      //   stroke: $primary;
+      // }
 
       .name {
         font-weight: 500;
 
-        color: $primary;
+        // color: $primary;
       }
     }
 
@@ -188,16 +229,22 @@
     }
 
     &title {
+      @include theme() {
+        color: theme-get('text-secondary');
+      }
+
       font-weight: 400;
       font-size: 18px;
       line-height: 27px;
       /* identical to box height */
-
-      color: $text-secondary;
     }
   }
 
   .footer-text {
+    @include theme() {
+      color: theme-get('footer');
+    }
+
     padding: 0 38px;
     font-weight: 400;
     font-size: 16px;
@@ -205,19 +252,29 @@
     /* identical to box height */
     letter-spacing: -0.005em;
 
-    color: $footer;
   }
 }
 
 .toggle {
   &- {
+    @include theme() {
+      &container {
+        background-color: theme-get('bg-tertiary');
+      }
+
+      &circle {
+        &.active {
+          background: theme-get('bg-light');
+        }
+      }
+    }
+    
     &container {
       display: flex;
       justify-content: flex-start;
       align-items: center;
       padding: 4px;
 
-      background: $bg-tertiary;
 
       width: 70px;
       height: 30px;
@@ -231,15 +288,15 @@
 
       border-radius: 100px;
 
-      background-position: center;
+      background-position: center !important;
       background-size: 15px 15px;
-      background-repeat: no-repeat;
+      background-repeat: no-repeat !important;
 
       transition: all .25s ease-in-out;
 
-      &.active {
-        background-color: $bg-light;
-      }
+      // &.active {
+      //   background-color: $bg-light;
+      // }
     }
   }
 }
